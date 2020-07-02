@@ -15,7 +15,7 @@ metadata:
   labels: {{- include "kafka.labels" . | nindent 4 }}
     app.kubernetes.io/component: kafka
 spec:
-  podManagementPolicy: Parallel
+  podManagementPolicy: {{ .Values.podManagementPolicy }}
   replicas: {{ .Values.replicaCount }}
   selector:
     matchLabels: {{- include "kafka.matchLabels" . | nindent 6 }}
